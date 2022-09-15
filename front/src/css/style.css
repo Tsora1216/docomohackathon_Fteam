@@ -38,17 +38,26 @@ body{
 
 
 .inner{
-  width: 80%;
+  width:71%;
+  padding-bottom: 200px;
   margin: 0 auto;
 }
 
 .intro_box{
   margin-bottom: 30px;
-  font-size: 28px;
+  font-size: 24px;
 }
 
+.intro_span{
+  margin-left: auto;
+  font-size: 20px;
+  width: fit-content;
+  display: block;
+}
 
 .map_box{
+  width: fit-content;
+  margin: 0 auto 30px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -141,4 +150,110 @@ body{
 
 .curr_loca{
   margin-bottom: 30px;
+}
+
+
+.detail{
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.txt-margin{
+  white-space: nowrap;
+}
+
+
+
+
+
+
+
+
+.display{
+  position: absolute;
+  right: 0;
+}
+.roulette{
+  width: 150px;
+  height: 100px;
+  display: block;
+  margin-left: auto;
+  margin-right: 150px;
+  position: relative;
+}
+.cil{
+  width: 80px;
+  height: 80px; 
+  background-color: rgb(250, 255, 180);
+  border-radius: 50%;/* 円*/
+  line-height: 80px;
+  text-align: center;
+  display: block;
+  position: absolute;
+  top: 0!important;
+}
+.cil:first-child{
+  left: 0px!important;
+}
+
+.cil:last-child{
+  left: 150px!important;
+}
+.c_button{
+  margin: auto;
+  margin-right: 30px;
+  position: relative;
+}
+.roulette_btn {
+  width: 150px;
+  height: 50px;
+  margin: 20px;
+  border: 2px solid #000;
+  border-radius: 0;
+  background: #fff;
+  text-align: center;
+}
+.roulette_btn:hover {
+  color: #fff;
+  background: #000;
+}
+.red {
+  background-color:#ff0062;
+  width: 80px;
+  height: 80px; 
+  border-radius: 50%;/* 円*/
+  line-height: 80px;
+  text-align: center;
+  display: block;
+  position: absolute;
+}
+.pink{
+  background-color:#ff73dc;
+  width: 80px;
+  height: 80px; 
+  border-radius: 50%;/* 円*/
+  line-height: 80px;
+  text-align: center;
+  display: block;
+  position: absolute;
+}
+
+
+
+
+
+
+.footer{
+  height: 80px;
+  background: #111;
+}
+
+small{
+  width: fit-content;
+  margin: 0 auto;
+  color: #fff;
+  font-size: 22px;
+  line-height: 80px;
+  display: block;
 }
