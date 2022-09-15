@@ -4,11 +4,11 @@ import json
 API_KEY="28a7dae3df080074"
 BASE_URL = r"http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key="+ API_KEY 
 print(BASE_URL)
-url=BASE_URL+ r'&access=*新宿*'+r"&format=json"
+url=BASE_URL+ "&service_area=SA11" + r'&keyword=新宿'+r"&format=json"
 print(url)
 pay={"genre":"G001"}
 res = requests.get(url,pay)
-result_list = json.loads(res.text)["results"]["shop"]["access"]
+result_list = json.loads(res.text)["results"]["shop"]
 print([d.get("name") for d in result_list])
 
 """レスポンス一件当たりに含まれる情報
