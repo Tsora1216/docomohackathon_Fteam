@@ -29,6 +29,7 @@ fetch('https://gi3wuc5qt1.execute-api.ap-northeast-1.amazonaws.com/test/', {
   if (response.ok) {
     return response.json().then(resJson => {
       console.log(JSON.stringify(resJson));
+      document.querySelector('.intro_box').innerHTML = JSON.stringify(resJson);
     });
   }
   throw new Error('Network response was not ok.');
@@ -45,4 +46,21 @@ window.onload = function() {
   let last = document.getElementById("map").lastElementChild;
   // console.log(last);
   last.remove();
+}
+
+
+
+function buttonClick(){
+  var xhr = new XMLHttpRequest();
+  
+  xhr.open('POST', 'https://gi3wuc5qt1.execute-api.ap-northeast-1.amazonaws.com/test/');
+  xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+  xhr.send();
+  
+  xhr.onreadystatechange = function() {
+  
+    if(xhr.readyState === 4 && xhr.status === 200) {
+      console.log(xhr.responseText);
+    }
+  }
 }
