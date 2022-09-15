@@ -57,14 +57,14 @@
 
 	<div class="map_box">
 		<div class="box" style="width:720px;height:450px;background: #4ec;"></div>
-		
+		<button id="btn" class="btn curr_loca">現在地取得</button>
+
 		<form action="https://gi3wuc5qt1.execute-api.ap-northeast-1.amazonaws.com/test" method="post">
 			<div class="input_box">
 				<label for="loca" class="location_lavel">あなたの最寄り駅を入力してください</label>
 				<input id="loca" class="input" type="text" name="location" placeholder="東京駅">
 
-				<button class="btn curr_loca" href="">現在地取得</button>
-
+				
 				<label for="p_loca" class="location_lavel">相手の最寄駅を入力してください</label>
 				<input id="p_loca" class="input" type="text" name="partner_location" placeholder="大阪駅">
 
@@ -73,7 +73,18 @@
 		</form>
 	</div>
 
-
+	<div class="center">
+		<div class="btn-margin">
+				<!-- <button id="btn" class="btn btn-outline-primary btn-lg">
+						現在位置を取得する
+				</button> -->
+		</div>
+		<div class="txt-margin">
+				<p>緯度：<span id="latitude">???</span><span>度</span></p>
+				<p>経度：<span id="longitude">???</span><span>度</span></p>
+		</div>
+</div>
+<script src="geolocation.js"></script>
 
   </body>
 </html>
