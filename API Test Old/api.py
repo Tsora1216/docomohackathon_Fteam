@@ -1,6 +1,5 @@
 import requests
-
-import requests
+import json
 
 url = "http://zip.cgis.biz/xml/zip.php"
 payload = {"zn": "1310045"}
@@ -16,6 +15,10 @@ url=BASE_URL
 pay={"name":"居酒屋"}
 res = requests.get(url,pay)
 
+j2p_data = json.loads(res)
+print(j2p_data)
+
+"""
 print(res.text)
 
 jsondate=res.json()
@@ -23,3 +26,4 @@ jsondate=res.json()
 print(jsondate["non_smoking"])
 for jsonObj in jsondate:
     print(jsondate["name"])
+"""
