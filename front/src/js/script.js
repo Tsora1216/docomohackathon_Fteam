@@ -43,17 +43,24 @@ function errorCallback(error){
 };
 
 // 取得に成功した場合の処理
-function successCallback(position){
-  // 緯度を取得し画面に表示
-  let latitude = position.coords.latitude;
-  document.getElementById("latitude").innerHTML = latitude;
-  // 経度を取得し画面に表示
-  let longitude = position.coords.longitude;
-  document.getElementById("longitude").innerHTML = longitude;
-// };
+function successCallback(position, flag, lat, lng){
+  let latitude, longitude;
+  if(flag == null){
+    // 緯度を取得し画面に表示
+    latitude = position.coords.latitude;
+    document.getElementById("latitude").innerHTML = latitude;
+    // 経度を取得し画面に表示
+    longitude = position.coords.longitude;
+    document.getElementById("longitude").innerHTML = longitude;
+  }
 
+  else{
+    // 緯度を取得し画面に表示
+    latitude = lat;
+    // 経度を取得し画面に表示
+    longitude = lng;
+  }
 
-// function mapClick(params) {
   let map;
   let marker;
   let infoWindow;
@@ -67,8 +74,6 @@ function successCallback(position){
     zoom: 19 // 地図のズームを指定
   });
 
-  // map.setMap(null);
-
   marker = new google.maps.Marker({ // マーカーの追加
       position: center, // マーカーを立てる位置を指定
       map: map // マーカーを立てる地図を指定
@@ -81,11 +86,6 @@ function successCallback(position){
   marker.addListener('click', function() { // マーカーをクリックしたとき
     infoWindow.open(map, marker); // 吹き出しの表示
   });
-
-
-  // let last = document.getElementById("map").lastElementChild;
-  // console.log(last);
-  // last.remove();
 }
 
 
@@ -116,29 +116,37 @@ window.onload = function() {
   last.remove();
 }
 
+let unicodeUnescape = function(str) {
+	let result = '', strs = str.match(/\\u.{4}/ig);
 
+	if (!strs) return '';
+
+	for (let i = 0, len = strs.length; i < len; i++) {
+		result += String.fromCharCode(strs[i].replace('\\u', '0x'));
+	}
+
+	return result;
+};
 
 function buttonClick(){
-  var xhr = new XMLHttpRequest();
+  let input_me = document.querySelector('#loca').value;
+  let input_partner = document.querySelector('#p_loca').value;
+
+  let xhr = new XMLHttpRequest();
 
   xhr.open('POST', 'https://gi3wuc5qt1.execute-api.ap-northeast-1.amazonaws.com/test/');
   xhr.setRequestHeader('content-type', 'application/json;charset=UTF-8');
-  // let body = {
-  //   "info":{
-  //     "name":"郷どり 燦鶏 サンケイ Pedi汐留店",
-  //     "address":"東京都港区東新橋１－９－１　東京汐留ビルディング内　Ｐｅｄｉ汐留２Ｆ",
-  //     "lat":35.6631030057,
-  //     "lng":139.7613604301
-  //   }
-  // };
-  let body = [
-    {'station':'東京駅'}
-  ];
-  xhr.send(body);
-  xhr.onreadystatechange = function() {
 
+  let body = {'station': input_me};
+  body = JSON.stringify(body);
+  xhr.send(body);
+
+  xhr.onreadystatechange = function() {
     if(xhr.readyState === 4 && xhr.status === 200) {
-      console.log(xhr.responseText);
+      let ary = JSON.parse(xhr.responseText).body.info;
+      successCallback(this,true, parseFloat(ary.lat), parseFloat(ary.lng));
+      document.querySelector('.loca_name_insert').innerHTML = ary.name;
+      document.querySelector('.loca_address_insert').innerHTML = ary.address;
     }
   }
 }
