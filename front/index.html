@@ -48,9 +48,11 @@
 		<div class="inner">
 
 			<div class="intro_box">
-				行きたい場所が決まらない、決められない。<br>
-				「どこでもいいよ」<br>
-				そんな言葉は聞きたくない。
+				もう、目的地には困らない。<br>
+				<span class="intro_span">
+					「どこでもいいよ」<br>
+					じゃあ、「ねぇ、Doco 行く？」で決めるか
+				</span>
 			</div>
 
 
@@ -61,7 +63,7 @@
 
 				<div class="station_box">
 
-					<button id="btn" class="btn curr_loca" onclick="mapClick()">現在地取得</button>
+					<button id="btn" class="btn curr_loca" >現在地取得</button>
 
 					<form action="https://gi3wuc5qt1.execute-api.ap-northeast-1.amazonaws.com/test" method="post">
 						<div class="input_box">
@@ -78,15 +80,27 @@
 				</div>
 			</div>
 
-			<div class="center">
+			<div class="detail">
 				<div class="txt-margin">
 					<p class="loca_name">店名 : <span class="loca_name_insert"></span></p>
 					<p class="loca_address">住所 : <span class="loca_address_insert"></span></p>
-						<!-- <p>緯度：<span id="latitude">???</span><span>度</span></p>
-						<p>経度：<span id="longitude">???</span><span>度</span></p> -->
+				</div>
+
+				<div class="display">
+					<div id = "roulette" class="roulette"></div>
+					<div class="c_button">
+							<button id ="start" class="roulette_btn">スタート</button>
+							<button id ="stop" class="roulette_btn">ストップ</button>
+							<button id ="reset" class="roulette_btn">リセット</button>
+					</div>
 				</div>
 			</div>
 		</div>
+
+
+		<footer class="footer">
+			<small>@Nature</small>
+		</footer>
 
 
   </body>
