@@ -1,0 +1,127 @@
+/* 
+
+#sample {
+  width: 700px;
+  height: 400px;
+} */
+
+
+body{
+  background: #e3ddd7;
+  font-family: '游ゴシック体', YuGothic, '游ゴシック', 'Yu Gothic', 'メイリオ', Meiryo, 'Hiragino Sans', 'ヒラギノ角ゴ Pro', 'Hiragino Kaku Gothic Pro', 'ＭＳ Ｐゴシック', sans-serif;
+}
+
+
+
+.doc_head{
+  width: 100%;
+  height: 80px;
+  padding: 0 5%;
+  background: #cd0134;
+  line-height: 80px;
+  color: #fff;
+  letter-spacing: .05em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.doco_title{
+  font-size: 36px;
+  font-family: cursive;
+}
+
+.doc_team{
+  font-size: 28px;
+  font-family: cursive;
+}
+
+
+.map_box{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
+.input_box{
+  width: fit-content;
+  padding: 8% 14% 15% 18%;
+  margin-left: -37%;
+  background: #fff;
+  white-space: nowrap;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.location_lavel{
+  margin-bottom: 12px;
+}
+
+.input{
+  width: fit-content;
+  padding: 4px;
+  margin-bottom: 20px;
+}
+
+.input:last-child{
+  margin-bottom: 0;
+}
+
+.btn{
+  width: 100%;
+  padding: 9px 27px 13px 27px;
+  margin: 0 auto;
+  border: none;
+  background: #4ec;
+  font-weight: 600;
+  text-align: right;
+  overflow: hidden;
+  position: relative;
+}
+
+.btn::before{
+  content: "";
+  width: 100%; 
+  height: 1px;
+  background: #cd0134;
+  transition: .3s;
+  transition-delay: .3s;
+  position: absolute;
+  top: 80%;
+  left: 80%;
+}
+
+.btn:hover::before{
+  height: 2px;
+  transition: .3s;
+  transition-delay: 0s;
+  left: 15%;
+}
+
+.btn::after{
+  content: "";
+  width: 0%; 
+  height: 1px;
+  background: #cd0134;
+  transition: .3s;
+  transition-delay: 0s;
+  transform-origin: center left;
+  transform: rotate(-30deg);
+  position: absolute;
+  top: 80%;
+  left: 15%;
+}
+
+.btn:hover::after{
+  width: 100%;
+  height: 2px;
+  transition: .3s;
+  transition-delay: .3s;
+  left: 15%;
+}
+
+
+.curr_loca{
+  margin-bottom: 30px;
+}
