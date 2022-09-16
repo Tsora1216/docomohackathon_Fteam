@@ -149,22 +149,22 @@ function buttonClick(){
     if(xhr.readyState === 4 && xhr.status === 200) {
       let ary = JSON.parse(xhr.responseText).body.info;
       let ary2 = JSON.parse(xhr.responseText).body.info2;
-      console.log(ary);
+
+      successCallback(this,true, parseFloat(ary.lat), parseFloat(ary.lng));
+      document.querySelector('.loca_name_insert').innerHTML = ary.name;
+      document.querySelector('.loca_address_insert').innerHTML = ary.address;
+      document.querySelector('.loca_name_insert2').innerHTML = ary2.name;
+      document.querySelector('.loca_address_insert2').innerHTML = ary2.address;
 
       let eles = document.querySelectorAll('.cil');
       let pink;
       eles.forEach(e => {
-        if(e.classList.contains('pink')){
+        if(e.classList.contains('pink') == true){
           pink = e.getAttribute('id');
         }
       });
       console.log(pink);
 
-      if(typeof pink !== 'undefined'){
-        successCallback(this,true, parseFloat(ary.lat), parseFloat(ary.lng));
-        document.querySelector('.loca_name_insert').innerHTML = ary.name;
-        document.querySelector('.loca_address_insert').innerHTML = ary.address;
-      }
     }
   }
 }
