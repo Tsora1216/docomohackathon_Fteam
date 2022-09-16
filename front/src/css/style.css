@@ -201,7 +201,7 @@ body{
   left: 150px!important;
 }
 .c_button{
-  margin: auto;
+  margin: 60px auto 0;
   margin-right: 30px;
   position: relative;
 }
