@@ -249,6 +249,11 @@ document.addEventListener("DOMContentLoaded", function(){
       if(num.length === 0){
       document.getElementById("start").disabled = true;
       }
+
+      // let font = document.querySelector('.pink');
+      // if(font.classList.contains('cil0') == true){
+      //   document.querySelector('.kouho1')
+      // }
   }
   function reset_set(){//リセット押下
       clearInterval(interval);

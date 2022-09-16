@@ -163,6 +163,9 @@ body{
   white-space: nowrap;
 }
 
+.kouho.active{
+  font-weight: bold;
+}
 
 
 
